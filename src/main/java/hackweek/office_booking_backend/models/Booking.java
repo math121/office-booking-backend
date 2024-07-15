@@ -22,6 +22,14 @@ public class Booking {
     @JoinColumn(name = "office_id")
     private Office office;
 
+    public Booking() {
+
+    }
+
+    public Booking(LocalDateTime startDate, LocalDateTime endDate) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 
     public Long getId() {
         return id;
@@ -43,4 +51,11 @@ public class Booking {
         return office;
     }
 
+    public void setOffice(Office office) {
+        this.office = office;
+    }
+
+    public void setUserObk(UserObk userObk) {
+        this.userObk = userObk;
+    }
 }

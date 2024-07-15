@@ -17,6 +17,15 @@ public class Office {
     @OneToMany(mappedBy = "office", cascade = { CascadeType.MERGE, CascadeType.REMOVE })
     private List<Booking> bookings;
 
+    public Office() {
+    }
+
+    public Office(String officeName, String location, String description) {
+        this.officeName = officeName;
+        this.location = location;
+        this.description = description;
+    }
+
     public Long getId() {
         return id;
     }

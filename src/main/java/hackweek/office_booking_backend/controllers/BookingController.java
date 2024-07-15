@@ -1,16 +1,16 @@
 package hackweek.office_booking_backend.controllers;
 
+import hackweek.office_booking_backend.dtos.BookingDto;
 import hackweek.office_booking_backend.models.Booking;
 import hackweek.office_booking_backend.services.BookingService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/bookings")
+@CrossOrigin("http://localhost:5173")
 public class BookingController {
 
     private final BookingService bookingService;
@@ -22,5 +22,13 @@ public class BookingController {
     @GetMapping
     public ResponseEntity<List<Booking>> getAllBookings() {
         return ResponseEntity.ok(bookingService.getAllBookings());
+    }
+
+    @PostMapping
+    public ResponseEntity<Booking> postNewBooking(@RequestBody BookingDto bookingDto) {
+        System.out.println(bookingDto);
+        Booking booking = new Booking(bookingDto.startDate(), bookingDto.endDate());
+
+        return ResponseEntity.ok(bookingService.addNewBooking(booking, bookingDto.officeId()));
     }
 }
