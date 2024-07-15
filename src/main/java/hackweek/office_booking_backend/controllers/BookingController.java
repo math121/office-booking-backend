@@ -29,6 +29,7 @@ public class BookingController {
         System.out.println(bookingDto);
         Booking booking = new Booking(bookingDto.startDate(), bookingDto.endDate());
 
-        return ResponseEntity.ok(bookingService.addNewBooking(booking, bookingDto.officeId()));
+        return ResponseEntity.ok(bookingService.addNewBooking(booking, bookingDto.officeId(),
+                bookingDto.userId()));
     }
 }
