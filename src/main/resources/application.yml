@@ -1,1 +1,26 @@
-
+debug: true
+spring:
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/office-booking-db
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  sql:
+    init:
+      platform: postgresql
+      mode: always
+  output:
+    ansi:
+      enabled: always
+  config:
+    import: optional:file:.env[.properties]
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR

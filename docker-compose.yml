@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: 'postgres:15'
+    container_name: 'office-booking'
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=office-booking-db
+    volumes:
+      - ./data/pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    restart: always
