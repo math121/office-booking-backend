@@ -8,7 +8,7 @@ import java.util.List;
 public class UserObk {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String userName;

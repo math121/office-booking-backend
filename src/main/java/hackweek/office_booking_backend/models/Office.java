@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 public class Office {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String officeName;
