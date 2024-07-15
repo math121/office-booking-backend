@@ -19,9 +19,10 @@ public class BookingController {
         this.bookingService = bookingService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<Booking>> getAllBookings() {
-        return ResponseEntity.ok(bookingService.getAllBookings());
+    @GetMapping("/{timePeriod}/{id}")
+    public ResponseEntity<List<Booking>> getAllBookings(@PathVariable String timePeriod,
+                                                        @PathVariable Long id) {
+        return ResponseEntity.ok(bookingService.getBookings(timePeriod, id));
     }
 
     @PostMapping
@@ -32,4 +33,5 @@ public class BookingController {
         return ResponseEntity.ok(bookingService.addNewBooking(booking, bookingDto.officeId(),
                 bookingDto.userId()));
     }
+
 }

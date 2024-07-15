@@ -8,6 +8,7 @@ import hackweek.office_booking_backend.repositories.OfficeRepository;
 import hackweek.office_booking_backend.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -23,12 +24,19 @@ public class BookingService {
         this.officeRepo = officeRepo;
     }
 
-    public List<Booking> getAllBookings() {
-        return bookingRepo.findAll();
+    public List<Booking> getBookings(String timePeriod, Long id) {
+        UserObk userObk = userRepo.findById(id).get();
+        if (timePeriod.equals("past")) {
+            return bookingRepo.findAllByUserObkAndEndDateLessThan(userObk, LocalDateTime.now());
+        } else if (timePeriod.equals("future")) {
+            return bookingRepo.findAllByUserObkAndStartDateGreaterThan(userObk, LocalDateTime.now());
+        } else {
+            return null;
+        }
     }
 
-    public Booking addNewBooking(Booking booking, Long officeId) {
-        UserObk userObk = userRepo.findById(1L).get();
+    public Booking addNewBooking(Booking booking, Long officeId, Long userId) {
+        UserObk userObk = userRepo.findById(userId).get();
         Office office = officeRepo.findById(officeId).get();
         booking.setOffice(office);
         booking.setUserObk(userObk);
