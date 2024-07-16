@@ -8,6 +8,7 @@ import hackweek.office_booking_backend.repositories.OfficeRepository;
 import hackweek.office_booking_backend.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Book;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -40,6 +41,17 @@ public class BookingService {
         Office office = officeRepo.findById(officeId).get();
         booking.setOffice(office);
         booking.setUserObk(userObk);
+        return bookingRepo.save(booking);
+    }
+
+    public void deleteBooking(Long id) {
+        bookingRepo.deleteById(id);
+    }
+
+    public Booking updateBooking(Long id, LocalDateTime startDate, LocalDateTime enddate) {
+        Booking booking = bookingRepo.findById(id).get();
+        booking.setStartDate(startDate);
+        booking.setEndDate(enddate);
         return bookingRepo.save(booking);
     }
 }

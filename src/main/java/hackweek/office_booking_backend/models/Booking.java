@@ -58,4 +58,12 @@ public class Booking {
     public void setUserObk(UserObk userObk) {
         this.userObk = userObk;
     }
+
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
+    }
+
+    public void setStartDate(LocalDateTime startDate) {
+        this.startDate = startDate;
+    }
 }
