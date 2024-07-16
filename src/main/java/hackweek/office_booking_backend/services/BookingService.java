@@ -30,7 +30,7 @@ public class BookingService {
         if (timePeriod.equals("past")) {
             return bookingRepo.findAllByUserObkAndEndDateLessThan(userObk, LocalDateTime.now());
         } else if (timePeriod.equals("future")) {
-            return bookingRepo.findAllByUserObkAndStartDateGreaterThan(userObk, LocalDateTime.now());
+            return bookingRepo.findAllByUserObkAndEndDateGreaterThan(userObk, LocalDateTime.now());
         } else {
             return null;
         }

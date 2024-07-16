@@ -20,10 +20,10 @@ INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-01-
 INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-01-02T09:00:00', '2024-01-02T17:00:00', 2, 2);
 INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-01-03T09:00:00', '2024-01-03T17:00:00', 3, 3);
 INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-01-04T09:00:00', '2024-01-04T17:00:00', 4, 4);
-INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-01-05T09:00:00', '2024-01-05T17:00:00', 1, 5);
+INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-01-05T09:00:00', '2025-01-05T17:00:00', 1, 5);
 INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-01-06T09:00:00', '2024-01-06T17:00:00', 2, 6);
-INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-01-07T09:00:00', '2024-01-07T17:00:00', 3, 7);
-INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-01-08T09:00:00', '2024-01-08T17:00:00', 4, 8);
-INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-01-09T09:00:00', '2024-01-09T17:00:00', 1, 9);
+INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2025-01-07T09:00:00', '2025-01-07T17:00:00', 1, 7);
+INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-01-08T09:00:00', '2026-01-08T17:00:00', 1, 8);
+INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-01-09T09:00:00', '2025-01-09T17:00:00', 1, 9);
 INSERT INTO booking (start_date, end_date, user_id, office_id) VALUES ('2024-10-10T09:00:00', '2024-11-10T18:00:00', 1, 10);
 

@@ -8,6 +8,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface BookingRepository extends ListCrudRepository<Booking, Long> {
-    List<Booking> findAllByUserObkAndStartDateGreaterThan(UserObk userObk, LocalDateTime startDate);
+    List<Booking> findAllByUserObkAndEndDateGreaterThan(UserObk userObk, LocalDateTime startDate);
     List<Booking> findAllByUserObkAndEndDateLessThan(UserObk userObk, LocalDateTime endDate);
 }
