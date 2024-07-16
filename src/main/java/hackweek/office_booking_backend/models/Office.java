@@ -13,6 +13,7 @@ public class Office {
     private String officeName;
     private String location;
     private String description;
+    private String image;
 
     @OneToMany(mappedBy = "office", cascade = { CascadeType.MERGE, CascadeType.REMOVE })
     private List<Booking> bookings;
@@ -40,5 +41,9 @@ public class Office {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getImage() {
+        return image;
     }
 }
