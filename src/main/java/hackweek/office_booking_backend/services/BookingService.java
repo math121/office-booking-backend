@@ -36,6 +36,18 @@ public class BookingService {
         }
     }
 
+    public List<Booking> getBookingsWithFilter(String timePeriod, Long id, String filterLocation) {
+        List<Booking> bookings = getBookings(timePeriod, id);
+        if (bookings != null) {
+            return bookings
+                    .stream()
+                    .filter(bk -> bk.getOffice().getLocation()
+                            .toLowerCase().contains(filterLocation.toLowerCase()))
+                    .toList();
+        }
+        return null;
+    }
+
     public Booking addNewBooking(Booking booking, Long officeId, Long userId) {
         UserObk userObk = userRepo.findById(userId).get();
         Office office = officeRepo.findById(officeId).get();
@@ -48,10 +60,10 @@ public class BookingService {
         bookingRepo.deleteById(id);
     }
 
-    public Booking updateBooking(Long id, LocalDateTime startDate, LocalDateTime enddate) {
+    public Booking updateBooking(Long id, LocalDateTime startDate, LocalDateTime endDate) {
         Booking booking = bookingRepo.findById(id).get();
         booking.setStartDate(startDate);
-        booking.setEndDate(enddate);
+        booking.setEndDate(endDate);
         return bookingRepo.save(booking);
     }
 }

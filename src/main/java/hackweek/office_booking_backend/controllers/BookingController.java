@@ -29,6 +29,13 @@ public class BookingController {
         return ResponseEntity.ok(bookingService.getBookings(timePeriod, id));
     }
 
+    @GetMapping("/{timePeriod}/{id}/{filterLocation}")
+    public ResponseEntity<List<Booking>> getAllBookingsWithFilter(@PathVariable String timePeriod,
+                                                                  @PathVariable Long id,
+                                                                  @PathVariable String filterLocation) {
+        return ResponseEntity.ok(bookingService.getBookingsWithFilter(timePeriod, id, filterLocation));
+    }
+
     @PostMapping
     public ResponseEntity<Booking> postNewBooking(@RequestBody BookingDto bookingDto) {
         System.out.println(bookingDto);
