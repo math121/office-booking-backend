@@ -51,7 +51,7 @@ VALUES ('Central Plaza', 'Stora Södergatan 8, 222 23 Lund',
         'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 
 INSERT INTO booking (start_date, end_date, user_id, office_id)
-VALUES ('2024-01-01T09:00:00', '2024-01-01T17:00:00', 1, 1);
+VALUES ('2024-12-01T09:00:00', '2024-12-01T17:00:00', 1, 1);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
 VALUES ('2024-01-02T09:00:00', '2024-01-02T17:00:00', 1, 2);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
@@ -67,7 +67,9 @@ VALUES ('2024-01-01T09:00:00', '2025-01-07T17:00:00', 1, 7);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
 VALUES ('2024-01-08T09:00:00', '2026-01-08T17:00:00', 1, 8);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
-VALUES ('2024-01-09T09:00:00', '2025-01-09T17:00:00', 1, 9);
+VALUES ('2024-09-09T09:00:00', '2025-09-09T17:00:00', 1, 9);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
 VALUES ('2024-10-10T09:00:00', '2024-11-10T18:00:00', 1, 10);
+INSERT INTO booking (start_date, end_date, user_id, office_id)
+VALUES ('2024-08-10T09:00:00', '2024-08-10T18:00:00', 1, 10);
 

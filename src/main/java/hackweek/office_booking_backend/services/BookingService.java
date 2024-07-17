@@ -1,14 +1,17 @@
 package hackweek.office_booking_backend.services;
 
+import hackweek.office_booking_backend.dtos.StartDateEndDate;
 import hackweek.office_booking_backend.models.Booking;
 import hackweek.office_booking_backend.models.Office;
 import hackweek.office_booking_backend.models.UserObk;
 import hackweek.office_booking_backend.repositories.BookingRepository;
 import hackweek.office_booking_backend.repositories.OfficeRepository;
 import hackweek.office_booking_backend.repositories.UserRepository;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
 import java.awt.print.Book;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -65,5 +68,9 @@ public class BookingService {
         booking.setStartDate(startDate);
         booking.setEndDate(endDate);
         return bookingRepo.save(booking);
+    }
+
+    public List<StartDateEndDate> getBookedDatesForOffice(Long officeId) {
+        return bookingRepo.findAllByOfficeId(officeId);
     }
 }

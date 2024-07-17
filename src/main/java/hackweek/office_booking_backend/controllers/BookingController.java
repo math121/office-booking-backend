@@ -2,12 +2,14 @@ package hackweek.office_booking_backend.controllers;
 
 import hackweek.office_booking_backend.dtos.BookingDateUpdateDto;
 import hackweek.office_booking_backend.dtos.BookingDto;
+import hackweek.office_booking_backend.dtos.StartDateEndDate;
 import hackweek.office_booking_backend.models.Booking;
 import hackweek.office_booking_backend.services.BookingService;
 import hackweek.office_booking_backend.services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -55,6 +57,12 @@ public class BookingController {
     public ResponseEntity<Booking> updateBooking(@PathVariable Long id, @RequestBody BookingDateUpdateDto updateBooking) {
         Booking updateBk = bookingService.updateBooking(id, updateBooking.startDate(), updateBooking.endDate());
         return ResponseEntity.ok(updateBk);
+    }
+
+    @GetMapping("/bookedDates/{officeId}")
+    public ResponseEntity<List<StartDateEndDate>> getBookedDatesForOffice(@PathVariable Long officeId) {
+        var bookings = bookingService.getBookedDatesForOffice(officeId);
+        return ResponseEntity.ok(bookings);
     }
 
 }
