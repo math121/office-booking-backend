@@ -15,6 +15,10 @@ public class OfficeService {
         this.officeRepo = officeRepo;
     }
 
+    public List<Office> getAllOfficesByFilter(String filterWord) {
+        return officeRepo.findOfficesByLocationContainingIgnoreCase(filterWord);
+    }
+
     public List<Office> getAllOffices() {
         return officeRepo.findAll();
     }

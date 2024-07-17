@@ -3,10 +3,7 @@ package hackweek.office_booking_backend.controllers;
 import hackweek.office_booking_backend.models.Office;
 import hackweek.office_booking_backend.services.OfficeService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +21,10 @@ public class OfficeController {
     @GetMapping
     private ResponseEntity<List<Office>> getAllOffices() {
         return ResponseEntity.ok(officeService.getAllOffices());
+    }
+
+    @GetMapping("/{filterWord}")
+    private ResponseEntity<List<Office>> getAllOffices(@PathVariable String filterWord) {
+        return ResponseEntity.ok(officeService.getAllOfficesByFilter(filterWord));
     }
 }
