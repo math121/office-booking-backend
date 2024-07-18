@@ -1,13 +1,13 @@
-INSERT INTO user_obk (user_name, password)
-VALUES ('FrankCastle', 'test1234');
-INSERT INTO user_obk (user_name, password)
-VALUES ('alice_wonder', 'alice_pass');
-INSERT INTO user_obk (user_name, password)
-VALUES ('bob_builder', 'buildit2022');
-INSERT INTO user_obk (user_name, password)
-VALUES ('eve_black', 'eve_2023');
-INSERT INTO user_obk (user_name, password)
-VALUES ('frank_castle', 'punisher_pass');
+INSERT INTO user_obk (user_name, password, role)
+VALUES ('FrankCastle', 'test1234', 0);
+INSERT INTO user_obk (user_name, password, role)
+VALUES ('alice_wonder', 'alice_pass', 1);
+INSERT INTO user_obk (user_name, password, role)
+VALUES ('bob_builder', 'buildit2022', 0);
+INSERT INTO user_obk (user_name, password, role)
+VALUES ('eve_black', 'eve_2023', 1);
+INSERT INTO user_obk (user_name, password, role)
+VALUES ('frank_castle', 'punisher_pass', 0);
 
 INSERT INTO office (office_name, location, description, image)
 VALUES ('Headquarters', 'Drottninggatan 20, 111 51 Stockholm',
@@ -51,7 +51,7 @@ VALUES ('Central Plaza', 'Stora Södergatan 8, 222 23 Lund',
         'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 
 INSERT INTO booking (start_date, end_date, user_id, office_id)
-VALUES ('2024-12-01T09:00:00', '2024-12-01T17:00:00', 1, 1);
+VALUES ('2024-12-01T09:00:00', '2024-12-01T17:00:00', 2, 1);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
 VALUES ('2024-01-02T09:00:00', '2024-01-02T17:00:00', 1, 2);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
@@ -59,13 +59,13 @@ VALUES ('2024-01-03T09:00:00', '2024-01-03T17:00:00', 3, 3);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
 VALUES ('2024-01-04T09:00:00', '2024-01-04T17:00:00', 4, 4);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
-VALUES ('2024-01-05T09:00:00', '2025-01-05T17:00:00', 1, 5);
+VALUES ('2024-01-05T09:00:00', '2024-01-05T17:00:00', 1, 5);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
 VALUES ('2024-01-06T09:00:00', '2024-01-06T17:00:00', 2, 6);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
-VALUES ('2024-01-01T09:00:00', '2025-01-07T17:00:00', 1, 7);
+VALUES ('2024-01-01T09:00:00', '2025-01-07T17:00:00', 4, 7);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
-VALUES ('2024-01-08T09:00:00', '2026-01-08T17:00:00', 1, 8);
+VALUES ('2024-01-08T09:00:00', '2026-01-08T17:00:00', 2, 8);
 INSERT INTO booking (start_date, end_date, user_id, office_id)
 VALUES ('2024-09-09T09:00:00', '2025-09-09T17:00:00', 1, 9);
 INSERT INTO booking (start_date, end_date, user_id, office_id)

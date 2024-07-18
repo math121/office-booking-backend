@@ -2,6 +2,7 @@ package hackweek.office_booking_backend.controllers;
 
 import hackweek.office_booking_backend.dtos.SignUpDto;
 import hackweek.office_booking_backend.dtos.UserDto;
+import hackweek.office_booking_backend.models.UserObk;
 import hackweek.office_booking_backend.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,14 +25,14 @@ public class UserController {
     public ResponseEntity<UserDto> loginUser(@RequestParam String username,
                                              @RequestParam String password)
             throws AccountNotFoundException {
-        Long id = userService.getUserId(username, password);
-        return ResponseEntity.ok(new UserDto(id));
+        UserObk user = userService.getUserId(username, password);
+        return ResponseEntity.ok(new UserDto(user.getId(), user.getRole()));
     }
 
     @PostMapping("/signUp")
     public ResponseEntity<UserDto> signUpUser(@RequestBody SignUpDto newUser) throws Exception {
-        Long id = userService.addUser(newUser.username(), newUser.password());
-        return ResponseEntity.ok(new UserDto(id));
+        UserObk user = userService.addUser(newUser.username(), newUser.password(), newUser.role());
+        return ResponseEntity.ok(new UserDto(user.getId(), user.getRole()));
     }
 
     @ExceptionHandler(AccountNotFoundException.class)

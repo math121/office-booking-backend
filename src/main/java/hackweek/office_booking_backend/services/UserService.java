@@ -1,5 +1,6 @@
 package hackweek.office_booking_backend.services;
 
+import hackweek.office_booking_backend.enums.Role;
 import hackweek.office_booking_backend.models.UserObk;
 import hackweek.office_booking_backend.repositories.UserRepository;
 import org.apache.catalina.User;
@@ -16,20 +17,19 @@ public class UserService {
         this.userRepo = userRepo;
     }
 
-    public Long getUserId(String username, String password) throws AccountNotFoundException {
+    public UserObk getUserId(String username, String password) throws AccountNotFoundException {
         UserObk user = userRepo.findByUserNameAndPassword(username, password);
         if (user == null) {
             throw new AccountNotFoundException("Account not found");
         }
-        return user.getId();
+        return user;
     }
 
-    public Long addUser(String username, String password) throws Exception {
+    public UserObk addUser(String username, String password, Role role) throws Exception {
         UserObk findUser = userRepo.findByUserName(username);
         if (findUser != null) {
            throw new Exception("User already exists");
         }
-        UserObk newUser = userRepo.save(new UserObk(username, password));
-        return newUser.getId();
+        return userRepo.save(new UserObk(username, password, role));
     }
 }
