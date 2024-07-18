@@ -1,5 +1,6 @@
 package hackweek.office_booking_backend.controllers;
 
+import hackweek.office_booking_backend.dtos.OfficeDto;
 import hackweek.office_booking_backend.models.Office;
 import hackweek.office_booking_backend.services.OfficeService;
 import org.springframework.http.ResponseEntity;
@@ -19,12 +20,20 @@ public class OfficeController {
     }
 
     @GetMapping
-    private ResponseEntity<List<Office>> getAllOffices() {
+    public ResponseEntity<List<Office>> getAllOffices() {
         return ResponseEntity.ok(officeService.getAllOffices());
     }
 
     @GetMapping("/{filterWord}")
-    private ResponseEntity<List<Office>> getAllOffices(@PathVariable String filterWord) {
+    public ResponseEntity<List<Office>> getAllOffices(@PathVariable String filterWord) {
         return ResponseEntity.ok(officeService.getAllOfficesByFilter(filterWord));
     }
+
+    @PostMapping
+    public ResponseEntity<Office> addNewOffice(@RequestBody OfficeDto newOffice) {
+        Office office = new Office(newOffice.officeName(), newOffice.location(),
+                newOffice.description(), newOffice.image());
+        return ResponseEntity.ok(officeService.addNewOffice(office));
+    }
+
 }

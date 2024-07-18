@@ -21,7 +21,7 @@ public class Office {
     public Office() {
     }
 
-    public Office(String officeName, String location, String description) {
+    public Office(String officeName, String location, String description, String image) {
         this.officeName = officeName;
         this.location = location;
         this.description = description;

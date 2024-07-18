@@ -22,4 +22,8 @@ public class OfficeService {
     public List<Office> getAllOffices() {
         return officeRepo.findAll();
     }
+
+    public Office addNewOffice(Office office) {
+        return officeRepo.save(office);
+    }
 }
