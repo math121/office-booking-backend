@@ -25,6 +25,7 @@ public class Office {
         this.officeName = officeName;
         this.location = location;
         this.description = description;
+        this.image = image;
     }
 
     public Long getId() {
