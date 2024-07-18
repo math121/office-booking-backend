@@ -21,4 +21,12 @@ public class UserObk {
     public Long getId() {
         return id;
     }
+
+    public UserObk() {
+    }
+
+    public UserObk(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
 }

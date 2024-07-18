@@ -1,5 +1,5 @@
 INSERT INTO user_obk (user_name, password)
-VALUES ('test', 'test');
+VALUES ('FrankCastle', 'test1234');
 INSERT INTO user_obk (user_name, password)
 VALUES ('alice_wonder', 'alice_pass');
 INSERT INTO user_obk (user_name, password)

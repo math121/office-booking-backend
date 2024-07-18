@@ -5,4 +5,5 @@ import org.springframework.data.repository.ListCrudRepository;
 
 public interface UserRepository extends ListCrudRepository<UserObk, Long> {
     UserObk findByUserNameAndPassword(String username, String password);
+    UserObk findByUserName(String username);
 }
